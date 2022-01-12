@@ -1,14 +1,23 @@
 <script src="https://cnd.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
-    <p>{{titulo}}</p>
+  <input type="text" v-on:input="alterarTitulo">
+    <p>{{ titulo }}</p>
 </div>
 
+
 <script>
-    new Vue({
+ new Vue({
         el: '#app',
         data: {
-            titulo: 'Usando VueJS 2!'
+            titulo: 'okok!'
+        },
+        //Métodos são executados quando eventos acontecem no html
+        methods:{
+        alterarTitulo(event){
+        	this.titulo = event.target.value
         }
+       }
     })
+   
 </script>
