@@ -1,10 +1,13 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
 <div id="app">
   <p>{{ titulo }}</p>
   <p>{{ saudacao() }}</p>
-  //diretiva v-bind liga o que está na instância view e um atributo da sua tag do tamplete
   <a v-bind:href="link">google</a>
 </div>
+
+
 <script>
   new Vue({
     el: "#app",
@@ -14,7 +17,7 @@
     },
     methods: {
       saudacao: function(){
-        console.log(this)
+        this.titulo = 'Bom dia!!'
         //fazendo um proxy 
         return this.titulo
       }
