@@ -1,0 +1,40 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+    <p>{{ contador }}</p>
+
+    <br>
+    //$event o evento que foi gerado a partir do click vai ser passado como parametro para a funcao
+    <br>
+    <br>
+    <button v-on:click="somar(5, $event)">Somar 1</button>
+    <p v-on:mousemove="atualizarXY">Mouse: {{ x }} e {{ y }}
+
+        <span v-on:mousemove.stop="parar">PARAR AQUI!!!</span>
+    </p>
+    //previne que seja direcionado para a pagina definida
+    <a v-on:click="" href="http://google.com">Google</a>
+    
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x : 0,
+            y : 0,
+        }, 
+        methods: {
+            somar(passo, ev){
+                console.log(passo, ev)
+                this.contador += passo
+            },
+            atualizarXY(e){
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            // parar(e){
+            //     e.stopPropagation();
+            // }
+        },
+    })
+</script>
