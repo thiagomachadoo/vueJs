@@ -31,6 +31,10 @@
 		background-color: blueviolet;
 		
 	}
+	.direita{
+		float: right;
+	}
+
 </style>
 
 <div id="desafio">
@@ -53,17 +57,17 @@
 		(crie classe CSS de exemplo). -->
 	<h2>#03</h2>
 	<div>
-		<input type="text" v-model="eae">
-		<div></div>
+		<input type="text" v-model="classe3">
+		<div :class="classe3"></div>
 	</div>
 
 	<!-- 4) Aplique na div abaixo a classe informada pelo usuário e
     outra classe usando o valor true/false (crie classes CSS de exemplo). -->
 	<h2>#04</h2>
 	<div>
-		<input type="text">
-		<input type="text">
-		<div></div>
+		<input type="text" v-model="classe4">
+		<input type="text" @input="setPerigo">
+		<div :class="classe4 , {perigo}"></div>
 	</div>
 
 	<!-- 5) Repita 3) mas utilizando estilos ao invés de classes CSS.
@@ -76,11 +80,7 @@
 
 	<!-- 6) Crie uma barra de progresso simples com setInterval 
     e binding de estilo. -->
-	<h2>#06</h2>
-	<div>
-		<button @click="iniciarProgresso">Iniciar</button>
-		<div></div>
-	</div>
+	
 </div>
 
 <script>
@@ -88,19 +88,10 @@
 	el: '#desafio',
 	data: {
 		aplicar: false,
-		eae: {
-			cor: 'red'
-		}
-	},
-	methods: {
-		iniciarEfeito() {
-
-		},
-	/*	iniciarProgresso() {
-			setInterval(function(){
-				alert("0","100"),3000
-					})
-		},*/
+		perigo: true,
+		classe3: '',
+		classe4: ''
+		
 	},
 		computed: {
 			estiloCSS(){
@@ -108,8 +99,19 @@
 					destaque: this.aplicar,
 					encolher: !this.aplicar
 				}
+			},
+			
+		},
+		methods: {
+			setPerigo(event){
+				if(event.target.value == "true"){
+					this.perigo = true
+				}else if(event.target.value == "false"){
+					this.perigo = false
+				}
 			}
-		}
+		},
+		
 	})
 
 </script>
