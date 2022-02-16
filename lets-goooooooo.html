@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+   <button  v-on:click="alerta">clica ae po</button>
+    {{ message }}
+    {{color}}
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message : 'Hello Vue!',
+            color : 'red'
+        },
+        methods: {
+            alerta(){
+                alert("EAE GALERINHA")
+            }
+        }
+    })
+</script>
